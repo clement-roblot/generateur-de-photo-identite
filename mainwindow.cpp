@@ -6,6 +6,7 @@
 //TODO
 //- passer la cliqablegraphicsview en mat au lieu des IplImages
 //- documenter le code
+//- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -112,7 +113,7 @@ void MainWindow::composer(Mat image, Rect visage){
     int hauteur = 45*resol; //en px
 
     int x = (visage.x + (visage.width/2))-(largeur/2);
-    int y = (visage.y + (visage.height/2))-(hauteur/2)+OFFSETHAUTEUR;
+    int y = (visage.y + (visage.height/2))-(hauteur/2)+(OFFSETHAUTEUR*resol);
 
     Rect sortie;
     sortie.x = x;
@@ -153,7 +154,6 @@ void MainWindow::enregistrerImage(Mat image){
 
         imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), image);
     }
-
 }
 
 void MainWindow::on_chargerImage_clicked()
