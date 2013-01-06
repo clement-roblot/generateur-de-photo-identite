@@ -66,7 +66,9 @@ private:
 
 
 
-    void calculer(Mat image, Rect visage);
+    void composer(Mat image, Rect visage);
+
+    void enregistrerImage(Mat image);
 };
 
 #endif // MAINWINDOW_H

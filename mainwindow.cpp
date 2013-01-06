@@ -2,6 +2,11 @@
 #include "ui_mainwindow.h"
 
 
+
+//TODO
+//- passer la cliqablegraphicsview en mat au lieu des IplImages
+//- documenter le code
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -14,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gauche->addWidget(image);
 
 
-    //"/home/karlito/creation/photo_identitee/references/haarcascade_frontalface_alt.xml"
     if(!face_cascade.load("./references/haarcascade_frontalface_alt.xml")){
 
         qDebug("Erreur lors du chargement du fichier de caractéristique des visages.\n");
@@ -95,13 +99,13 @@ void MainWindow::on_bouttonEnregistrer_clicked()
     Rect visage;
     visage = detectAndDisplay();
 
-    calculer(raw, visage);
+    composer(raw, visage);
 
     timer->start();
 }
 
 
-void MainWindow::calculer(Mat image, Rect visage){
+void MainWindow::composer(Mat image, Rect visage){
 
     int resol = visage.height/TAILLE_VISAGE;
     int largeur = 35*resol; //en px
@@ -132,9 +136,24 @@ void MainWindow::calculer(Mat image, Rect visage){
     tmp.x = 55*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
 
+    enregistrerImage(imageSortie);
+}
 
 
-    imwrite( "/home/karlito/creation/photo_identitee/photos/sortie.jpg", imageSortie);
+void MainWindow::enregistrerImage(Mat image){
+
+    QFileDialog *dialog;
+    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toAscii());
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
+    dialog->setFileMode(QFileDialog::AnyFile);
+    dialog->setDefaultSuffix("jpg");
+    dialog->show();
+
+    if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
+
+        imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), image);
+    }
+
 }
 
 void MainWindow::on_chargerImage_clicked()
@@ -149,7 +168,6 @@ void MainWindow::on_chargerImage_clicked()
     dialog->show();
 
 
-
     if(dialog->exec() == QDialog::Accepted){    //si on valide dans la fenètre de selection de fichier
 
         file = dialog->selectedFiles();
@@ -161,7 +179,7 @@ void MainWindow::on_chargerImage_clicked()
         Rect visage;
         visage = detectAndDisplay();
 
-        calculer(raw, visage);
+        composer(raw, visage);
     }
 }
 
