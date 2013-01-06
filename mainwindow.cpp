@@ -13,11 +13,13 @@ MainWindow::MainWindow(QWidget *parent) :
     image->keep_image_ratio(true);
     ui->gauche->addWidget(image);
 
+    qDebug(QApplication::applicationFilePath().toAscii());
 
+    //"/home/karlito/creation/photo_identitee/references/haarcascade_frontalface_alt.xml"
+    if(!face_cascade.load("./references/haarcascade_frontalface_alt.xml")){
 
-    if( !face_cascade.load("/home/karlito/creation/photo_identitee/references/haarcascade_frontalface_alt.xml") ){ qDebug("--(!)Error loading\n");};
-
-
+        qDebug("Erreur lors du chargement du fichier de caractéristique des visages.\n");
+    }
 
     web = cvCreateCameraCapture(-1);
     if(!web){
@@ -161,9 +163,6 @@ void MainWindow::on_chargerImage_clicked()
         visage = detectAndDisplay();
 
         calculer(raw, visage);
-
-        //timer->start();
-
     }
 }
 

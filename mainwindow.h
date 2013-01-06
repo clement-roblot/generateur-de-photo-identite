@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QFileDialog>
+#include <QApplication>
 
 #include "opencv2/objdetect/objdetect.hpp"
 #include "opencv2/highgui/highgui.hpp"
