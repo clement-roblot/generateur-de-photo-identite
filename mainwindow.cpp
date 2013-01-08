@@ -8,6 +8,7 @@
 //- documenter le code
 //- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
 //- faire un fichier readme qui roxx avec des images d'exemple
+//- lorsqu'on dezzom beaucoup, on sort de l'image et on plante
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -18,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     image = new ClicableQGraphicsView();
     image->keep_image_ratio(true);
+    image->set_background_color(QColor(255, 255, 255));
     ui->gauche->addWidget(image);
 
 
@@ -103,13 +105,13 @@ void MainWindow::on_bouttonEnregistrer_clicked()
 
     composer(raw, visage);
 
-    timer->start();
+    //timer->start();
 }
 
 
 void MainWindow::composer(Mat image, Rect visage){
 
-    int resol = visage.height/TAILLE_VISAGE;
+    /*int resol = visage.height/TAILLE_VISAGE;
     int largeur = 35*resol; //en px
     int hauteur = 45*resol; //en px
 
@@ -138,7 +140,13 @@ void MainWindow::composer(Mat image, Rect visage){
     tmp.x = 55*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
 
-    enregistrerImage(imageSortie);
+    enregistrerImage(imageSortie);*/
+
+
+    timer->stop();
+
+    ConceptionPlanche *fenetreConception = new ConceptionPlanche(image, visage);
+    fenetreConception->show();
 }
 
 

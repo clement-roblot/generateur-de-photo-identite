@@ -12,11 +12,10 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 #include "clicableqgraphicsview.h"
+#include "conceptionplanche.h"
 
 
 
-#define TAILLE_VISAGE   34
-#define OFFSETHAUTEUR   -3     //TAILLE_VISAGE-OFFSETHAUTEUR < 45       On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
 
 
 using namespace std;

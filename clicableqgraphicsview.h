@@ -74,6 +74,9 @@ public slots:
     /** \brief Fonction permetant d'effacer l'aide. */
     void clear_aide(void){ if(aide != NULL) aide->clear(); refresh(); }
 
+
+    void set_background_color(QColor couleur){couleurBackground = couleur;}
+
     /** \brief Getter de la position de l'image dans la fenètre. */
     QPoint get_position_image(void){ return position_image; }
     /** \brief Getter de la taille de l'image dans la fenètre. */
@@ -112,6 +115,8 @@ private:
     QPoint position_image;
     /** \brief Taille de l'image dans la fenètre. */
     CvSize taille_image;
+
+    QColor couleurBackground;
 
     /** \brief Si on doit garder le ratio de l'image ou non. */
     bool keep_ratio;

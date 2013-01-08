@@ -164,6 +164,8 @@ void ClicableQGraphicsView::refresh(void)
 
                 if(scene)delete scene;
                 scene = new QGraphicsScene();   //on recréé une scene
+                scene->setBackgroundBrush(QBrush(couleurBackground, Qt::SolidPattern));
+
 
                 QImage tmp;
                 tmp = IplImage2QImage(displayed_image); //on converti l'image
