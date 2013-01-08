@@ -9,7 +9,6 @@
 //- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
 //- faire un fichier readme qui roxx avec des images d'exemple
 //- lorsqu'on dezzom beaucoup, on sort de l'image et on plante
-//- lorsqu'on ferme le fenetre de mise en page, la capture ne reprend pas.
 //- lorsqu'on ne trouve pas le visage, on plante.
 //- ajouter la possibilitée de recadrer le visage
 
@@ -116,9 +115,9 @@ void MainWindow::composer(Mat image, Rect visage){
 
     timer->stop();
 
-    fenetreConception = new ConceptionPlanche(image, visage);
+    fenetreConception = new ConceptionPlanche(image, visage, this);
     fenetreConception->show();
-    connect(fenetreConception, SIGNAL(finit()), this, SLOT(rependreEnregistrement()));
+    connect(fenetreConception, SIGNAL(finished(int)), this, SLOT(rependreEnregistrement()));
 }
 
 

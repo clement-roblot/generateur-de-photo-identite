@@ -2,7 +2,7 @@
 #include "ui_conceptionplanche.h"
 
 ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
-    QFrame(parent),
+    QDialog(parent),
     ui(new Ui::ConceptionPlanche)
 {
     ui->setupUi(this);
@@ -39,6 +39,7 @@ ConceptionPlanche::~ConceptionPlanche()
 {
     delete ui;
 }
+
 
 
 void ConceptionPlanche::actualiser(void){
@@ -90,7 +91,6 @@ void ConceptionPlanche::on_boutonSauvegarder_clicked()
     if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
 
         imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), imageSortie);
-        emit finit();
         this->close();
     }
 }

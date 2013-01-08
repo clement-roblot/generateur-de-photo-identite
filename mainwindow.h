@@ -15,9 +15,6 @@
 #include "conceptionplanche.h"
 
 
-
-
-
 using namespace std;
 using namespace cv;
 

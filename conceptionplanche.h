@@ -1,7 +1,7 @@
 #ifndef CONCEPTIONPLANCHE_H
 #define CONCEPTIONPLANCHE_H
 
-#include <QFrame>
+#include <QDialog>
 #include <QDebug>
 #include <QTimer>
 #include <QFileDialog>
@@ -14,7 +14,6 @@
 #include "clicableqgraphicsview.h"
 
 
-
 #define TAILLE_VISAGE   34
 #define OFFSETHAUTEUR   -3     //TAILLE_VISAGE-OFFSETHAUTEUR < 45       On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
 
@@ -24,32 +23,28 @@
 using namespace std;
 using namespace cv;
 
+
 namespace Ui {
 class ConceptionPlanche;
 }
 
-class ConceptionPlanche : public QFrame
+class ConceptionPlanche : public QDialog
 {
     Q_OBJECT
     
 public:
     explicit ConceptionPlanche(Mat image, Rect visage, QWidget *parent = 0);
     ~ConceptionPlanche();
-
-
+    
 private slots:
     void actualiser(void);
 
-    
+
     void on_boutonSauvegarder_clicked();
 
-signals:
-    void finit(void);
 
 private:
     Ui::ConceptionPlanche *ui;
-
-
 
 
     ClicableQGraphicsView *photo;
