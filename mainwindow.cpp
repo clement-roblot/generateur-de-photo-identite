@@ -6,11 +6,11 @@
 //TODO
 //- passer la cliqablegraphicsview en mat au lieu des IplImages
 //- documenter le code
-//- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
 //- faire un fichier readme qui roxx avec des images d'exemple
 //- lorsqu'on dezzom beaucoup, on sort de l'image et on plante
 //- lorsqu'on ne trouve pas le visage, on plante.
 //- ajouter la possibilitée de recadrer le visage
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

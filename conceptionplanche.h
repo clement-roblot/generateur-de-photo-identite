@@ -14,11 +14,16 @@
 #include "clicableqgraphicsview.h"
 
 
+#define LARGEUR_IMAGE   35
+#define HAUTEUR_IMAGE   45
+
 #define TAILLE_VISAGE   34
 #define OFFSETHAUTEUR   -3     //TAILLE_VISAGE-OFFSETHAUTEUR < 45       On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
 
 #define TAILLE_MIN_VISAGE   32
 #define TAILLE_MAX_VISAGE   36
+#define ECART_ENTRE_IMAGE_LARGEUR   10
+#define ECART_ENTRE_IMAGE_VERTICALE 10
 
 using namespace std;
 using namespace cv;

@@ -63,13 +63,13 @@ void ConceptionPlanche::actualiser(void){
     imageSortie = Scalar(255, 255, 255);
 
     Rect tmp;
-    tmp.x = 10*resol; tmp.y = 10*resol; tmp.width = sortie.width; tmp.height = sortie.height;
+    tmp.x = ECART_ENTRE_IMAGE_LARGEUR*resol; tmp.y = ECART_ENTRE_IMAGE_VERTICALE*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 55*resol; tmp.y = 10*resol; tmp.width = sortie.width; tmp.height = sortie.height;
+    tmp.x = (ECART_ENTRE_IMAGE_LARGEUR+HAUTEUR_IMAGE)*resol; tmp.y = ECART_ENTRE_IMAGE_VERTICALE*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 10*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
+    tmp.x = ECART_ENTRE_IMAGE_LARGEUR*resol; tmp.y = ((2*ECART_ENTRE_IMAGE_VERTICALE)+HAUTEUR_IMAGE)*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 55*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
+    tmp.x = (ECART_ENTRE_IMAGE_LARGEUR+HAUTEUR_IMAGE)*resol; tmp.y = ((2*ECART_ENTRE_IMAGE_VERTICALE)+HAUTEUR_IMAGE)*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
 
 
