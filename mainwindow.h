@@ -64,6 +64,7 @@ private:
     Mat affichage;
     Mat raw;
     QTimer *timer;
+    ConceptionPlanche *fenetreConception;
 
 
 

@@ -9,6 +9,7 @@
 //- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
 //- faire un fichier readme qui roxx avec des images d'exemple
 //- lorsqu'on dezzom beaucoup, on sort de l'image et on plante
+//- lorsqu'on ferme le fenetre de mise en page, la capture ne reprend pas.
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -113,9 +114,9 @@ void MainWindow::composer(Mat image, Rect visage){
 
     timer->stop();
 
-    ConceptionPlanche *fenetreConception = new ConceptionPlanche(image, visage);
+    fenetreConception = new ConceptionPlanche(image, visage);
     fenetreConception->show();
-    //connect(fenetreConception, SIGNAL(destroyed()), this, SLOT(rependreEnregistrement()));
+    connect(fenetreConception, SIGNAL(finit()), this, SLOT(rependreEnregistrement()));
 }
 
 
@@ -154,5 +155,6 @@ void MainWindow::on_actionPrendre_une_image_triggered()
 
 void MainWindow::rependreEnregistrement(void){
 
+    qDebug("retour à la fenetre principle");
     timer->start();
 }

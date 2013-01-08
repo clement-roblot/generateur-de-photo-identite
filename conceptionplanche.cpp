@@ -24,7 +24,8 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
     ui->tailleDuVisage->setMaximum(TAILLE_MAX_VISAGE);
 
 
-    ui->hauteurDuVisage->setValue(OFFSETHAUTEUR);
+    ui->hauteurDuVisage->setValue(0);
+    ui->largeurDuVisage->setValue(0);
 
     actualiser();
 
@@ -47,7 +48,7 @@ void ConceptionPlanche::actualiser(void){
     int largeur = 35*resol; //en px
     int hauteur = 45*resol; //en px
 
-    int x = (visage.x + (visage.width/2))-(largeur/2);
+    int x = (visage.x + (visage.width/2))-(largeur/2)+(ui->largeurDuVisage->value()*resol);
     int y = (visage.y + (visage.height/2))-(hauteur/2)+(ui->hauteurDuVisage->value()*resol);
 
     Rect sortie;
@@ -74,8 +75,6 @@ void ConceptionPlanche::actualiser(void){
 
     IplImage ipl_img = imageSortie;
     photo->display(&ipl_img);
-
-    //enregistrerImage(imageSortie);
 }
 
 void ConceptionPlanche::on_boutonSauvegarder_clicked()
@@ -91,6 +90,7 @@ void ConceptionPlanche::on_boutonSauvegarder_clicked()
     if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
 
         imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), imageSortie);
+        emit finit();
         this->close();
     }
 }

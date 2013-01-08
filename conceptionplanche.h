@@ -43,6 +43,9 @@ private slots:
     
     void on_boutonSauvegarder_clicked();
 
+signals:
+    void finit(void);
+
 private:
     Ui::ConceptionPlanche *ui;
 
