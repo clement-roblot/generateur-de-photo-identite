@@ -18,6 +18,8 @@
 #define TAILLE_VISAGE   34
 #define OFFSETHAUTEUR   -3     //TAILLE_VISAGE-OFFSETHAUTEUR < 45       On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
 
+#define TAILLE_MIN_VISAGE   32
+#define TAILLE_MAX_VISAGE   36
 
 using namespace std;
 using namespace cv;
@@ -39,6 +41,8 @@ private slots:
     void actualiser(void);
 
     
+    void on_boutonSauvegarder_clicked();
+
 private:
     Ui::ConceptionPlanche *ui;
 
@@ -47,6 +51,7 @@ private:
 
     ClicableQGraphicsView *photo;
     Mat image;
+    Mat imageSortie;
     Rect visage;
 };
 

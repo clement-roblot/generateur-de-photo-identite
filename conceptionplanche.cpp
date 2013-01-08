@@ -19,7 +19,11 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
 
 
 
+    ui->tailleDuVisage->setMinimum(TAILLE_MIN_VISAGE);
     ui->tailleDuVisage->setValue(TAILLE_VISAGE);
+    ui->tailleDuVisage->setMaximum(TAILLE_MAX_VISAGE);
+
+
     ui->hauteurDuVisage->setValue(OFFSETHAUTEUR);
 
     actualiser();
@@ -27,6 +31,8 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
 
     connect(ui->tailleDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
     connect(ui->hauteurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
+    connect(ui->largeurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
+    connect(ui->textEnBas, SIGNAL(textChanged()), this, SLOT(actualiser()));
 }
 
 ConceptionPlanche::~ConceptionPlanche()
@@ -52,7 +58,6 @@ void ConceptionPlanche::actualiser(void){
 
     Mat imageUniqueSortie = image(sortie);
 
-    Mat imageSortie;
     imageSortie.create(150*resol, 100*resol, CV_8UC3);
     imageSortie = Scalar(255, 255, 255);
 
@@ -71,4 +76,21 @@ void ConceptionPlanche::actualiser(void){
     photo->display(&ipl_img);
 
     //enregistrerImage(imageSortie);
+}
+
+void ConceptionPlanche::on_boutonSauvegarder_clicked()
+{
+
+    QFileDialog *dialog;
+    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toAscii());
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
+    dialog->setFileMode(QFileDialog::AnyFile);
+    dialog->setDefaultSuffix("jpg");
+    dialog->show();
+
+    if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
+
+        imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), imageSortie);
+        this->close();
+    }
 }

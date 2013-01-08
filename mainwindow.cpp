@@ -111,59 +111,14 @@ void MainWindow::on_bouttonEnregistrer_clicked()
 
 void MainWindow::composer(Mat image, Rect visage){
 
-    /*int resol = visage.height/TAILLE_VISAGE;
-    int largeur = 35*resol; //en px
-    int hauteur = 45*resol; //en px
-
-    int x = (visage.x + (visage.width/2))-(largeur/2);
-    int y = (visage.y + (visage.height/2))-(hauteur/2)+(OFFSETHAUTEUR*resol);
-
-    Rect sortie;
-    sortie.x = x;
-    sortie.y = y;
-    sortie.width = largeur;
-    sortie.height = hauteur;
-
-    Mat imageUniqueSortie = image(sortie);
-
-    Mat imageSortie;
-    imageSortie.create(150*resol, 100*resol, CV_8UC3);
-    imageSortie = Scalar(255, 255, 255);
-
-    Rect tmp;
-    tmp.x = 10*resol; tmp.y = 10*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 55*resol; tmp.y = 10*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 10*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
-    tmp.x = 55*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
-
-    enregistrerImage(imageSortie);*/
-
-
     timer->stop();
 
     ConceptionPlanche *fenetreConception = new ConceptionPlanche(image, visage);
     fenetreConception->show();
+    //connect(fenetreConception, SIGNAL(destroyed()), this, SLOT(rependreEnregistrement()));
 }
 
 
-void MainWindow::enregistrerImage(Mat image){
-
-    QFileDialog *dialog;
-    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toAscii());
-    dialog->setAcceptMode(QFileDialog::AcceptSave);
-    dialog->setFileMode(QFileDialog::AnyFile);
-    dialog->setDefaultSuffix("jpg");
-    dialog->show();
-
-    if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
-
-        imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), image);
-    }
-}
 
 void MainWindow::on_chargerImage_clicked()
 {
@@ -195,4 +150,9 @@ void MainWindow::on_chargerImage_clicked()
 void MainWindow::on_actionPrendre_une_image_triggered()
 {
     on_bouttonEnregistrer_clicked();
+}
+
+void MainWindow::rependreEnregistrement(void){
+
+    timer->start();
 }

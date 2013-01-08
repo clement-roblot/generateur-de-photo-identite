@@ -46,6 +46,8 @@ private slots:
 
     void on_actionPrendre_une_image_triggered();
 
+    void rependreEnregistrement(void);
+
 signals:
     void captureFinie(void);
     void calculFini(void);
@@ -67,7 +69,6 @@ private:
 
     void composer(Mat image, Rect visage);
 
-    void enregistrerImage(Mat image);
 };
 
 #endif // MAINWINDOW_H
