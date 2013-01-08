@@ -33,7 +33,6 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
     connect(ui->tailleDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
     connect(ui->hauteurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
     connect(ui->largeurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
-    connect(ui->textEnBas, SIGNAL(textChanged()), this, SLOT(actualiser()));
 }
 
 ConceptionPlanche::~ConceptionPlanche()
@@ -71,6 +70,7 @@ void ConceptionPlanche::actualiser(void){
     imageUniqueSortie.copyTo(imageSortie(tmp));
     tmp.x = 55*resol; tmp.y = 65*resol; tmp.width = sortie.width; tmp.height = sortie.height;
     imageUniqueSortie.copyTo(imageSortie(tmp));
+
 
 
     IplImage ipl_img = imageSortie;
