@@ -13,6 +13,9 @@ ClicableQGraphicsView::ClicableQGraphicsView(QWidget *)
 
     aide = NULL;
     afficher_aide = false;
+
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 }
 
 

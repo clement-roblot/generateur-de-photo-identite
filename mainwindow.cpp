@@ -7,6 +7,7 @@
 //- passer la cliqablegraphicsview en mat au lieu des IplImages
 //- documenter le code
 //- ajouter une nouvelle fenetre pour pouvoir configurer l'image exporte (notament l'offset en hauteur)
+//- faire un fichier readme qui roxx avec des images d'exemple
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

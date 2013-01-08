@@ -19,10 +19,13 @@ unix:PKGCONFIG += opencv
 SOURCES += main.cpp\
         mainwindow.cpp \
     refait.cpp \
-    clicableqgraphicsview.cpp
+    clicableqgraphicsview.cpp \
+    conceptionplanche.cpp
 
 HEADERS  += mainwindow.h \
     refait.h \
-    clicableqgraphicsview.h
+    clicableqgraphicsview.h \
+    conceptionplanche.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    conceptionplanche.ui
