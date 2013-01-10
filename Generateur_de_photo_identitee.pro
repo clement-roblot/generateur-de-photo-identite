@@ -20,12 +20,15 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     refait.cpp \
     clicableqgraphicsview.cpp \
-    conceptionplanche.cpp
+    conceptionplanche.cpp \
+    recadragephoto.cpp
 
 HEADERS  += mainwindow.h \
     refait.h \
     clicableqgraphicsview.h \
-    conceptionplanche.h
+    conceptionplanche.h \
+    recadragephoto.h
 
 FORMS    += mainwindow.ui \
-    conceptionplanche.ui
+    conceptionplanche.ui \
+    recadragephoto.ui

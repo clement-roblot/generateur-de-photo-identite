@@ -20,6 +20,13 @@
    <item>
     <layout class="QVBoxLayout" name="droite">
      <item>
+      <widget class="QPushButton" name="bouttonRecadrerImage">
+       <property name="text">
+        <string>Recadrer image</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label">

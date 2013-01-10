@@ -12,6 +12,7 @@
 #include "opencv2/imgproc/imgproc.hpp"
 
 #include "clicableqgraphicsview.h"
+#include "recadragephoto.h"
 
 
 #define LARGEUR_IMAGE   35
@@ -48,9 +49,14 @@ private slots:
     void on_boutonSauvegarder_clicked();
 
 
+    void on_bouttonRecadrerImage_clicked();
+
+    void recadrageFini(Rect visage);
+
 private:
     Ui::ConceptionPlanche *ui;
 
+    RecadragePhoto *reca;
 
     ClicableQGraphicsView *photo;
     Mat image;

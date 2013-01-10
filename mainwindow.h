@@ -13,6 +13,7 @@
 
 #include "clicableqgraphicsview.h"
 #include "conceptionplanche.h"
+#include "recadragephoto.h"
 
 
 using namespace std;
@@ -45,6 +46,8 @@ private slots:
 
     void rependreEnregistrement(void);
 
+    void recadrageFini(Rect visage);
+
 signals:
     void captureFinie(void);
     void calculFini(void);
@@ -62,6 +65,7 @@ private:
     Mat raw;
     QTimer *timer;
     ConceptionPlanche *fenetreConception;
+    RecadragePhoto *reca;
 
 
 

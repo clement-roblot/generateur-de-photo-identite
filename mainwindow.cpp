@@ -7,9 +7,8 @@
 //- passer la cliqablegraphicsview en mat au lieu des IplImages
 //- documenter le code
 //- faire un fichier readme qui roxx avec des images d'exemple
-//- lorsqu'on dezzom beaucoup, on sort de l'image et on plante
-//- lorsqu'on ne trouve pas le visage, on plante.
-//- ajouter la possibilitée de recadrer le visage
+//- lorsqu'on dezoom beaucoup, on sort de l'image et on plante
+//- expliquer comment on selectionne le front etc dans la fenetre de selection du visage
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -93,6 +92,10 @@ Rect MainWindow::detectAndDisplay(void)
        return faces[0];
    }else{
        Rect tmp;
+       tmp.x = -1;
+       tmp.y = -1;
+       tmp.width = -1;
+       tmp.height = -1;
        return tmp;
    }
 
@@ -105,11 +108,24 @@ void MainWindow::on_bouttonEnregistrer_clicked()
     Rect visage;
     visage = detectAndDisplay();
 
-    composer(raw, visage);
+    if( (visage.x == -1) && (visage.y == -1) && (visage.width == -1) && (visage.height = -1) ){ //si on a pas trouvé de visage
 
-    //timer->start();
+        reca = new RecadragePhoto(raw, this);
+        reca->show();
+        connect(reca, SIGNAL(configFinie(Rect)), this, SLOT(recadrageFini(Rect)));
+
+    }else{  //si on en a trouvé un
+
+        composer(raw, visage);
+    }
 }
 
+
+
+void MainWindow::recadrageFini(Rect visage){
+
+    composer(raw, visage);
+}
 
 void MainWindow::composer(Mat image, Rect visage){
 

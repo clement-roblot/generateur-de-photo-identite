@@ -94,3 +94,20 @@ void ConceptionPlanche::on_boutonSauvegarder_clicked()
         this->close();
     }
 }
+
+void ConceptionPlanche::on_bouttonRecadrerImage_clicked()
+{
+    reca = new RecadragePhoto(image, this);
+    reca->show();
+    //reca->setCadre(visage);
+    connect(reca, SIGNAL(configFinie(Rect)), this, SLOT(recadrageFini(Rect)));
+}
+
+
+void ConceptionPlanche::recadrageFini(Rect visage){
+
+    this->visage = visage;
+    actualiser();
+}
+
+

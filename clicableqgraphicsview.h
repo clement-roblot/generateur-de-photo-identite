@@ -35,6 +35,11 @@
 #define TAILLE_DE_LIGNE 15
 
 
+
+using namespace std;
+using namespace cv;
+
+
 /**
   * \brief Ligne de l'aide.
   * \var couleur Pointeur vers la couleur du carré que l'on veut afficher sur la ligne.
@@ -58,6 +63,7 @@ public:
     ClicableQGraphicsView(QWidget * = 0);
     ~ClicableQGraphicsView();
     void display(IplImage *src);
+    void display(Mat src);
     void append_aide(QString msg, QColor *couleur = NULL);
 
 public slots:

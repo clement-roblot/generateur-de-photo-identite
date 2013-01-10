@@ -207,6 +207,25 @@ void ClicableQGraphicsView::refresh(void)
 }
 
 
+
+/**
+  * \brief Fonction permetant d'afficher une image d'opencv
+  * \param src est un pointeur vers l'image à afficher
+  *
+  * Cette fonction va créer une copie de l'image src et va l'afficher.
+  */
+void ClicableQGraphicsView::display(Mat src)
+{
+    IplImage tmp = src;
+    display(&tmp);
+    IplImage *tempo;
+    tempo = &tmp;
+    cvReleaseImage(&tempo);
+}
+
+
+
+
 /**
   * \brief Fonction permetant d'afficher une image d'opencv
   * \param src est un pointeur vers l'image à afficher
