@@ -7,7 +7,6 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
 {
     ui->setupUi(this);
 
-
     this->visage = visage;
     image.copyTo(this->image);
 
@@ -45,6 +44,8 @@ ConceptionPlanche::~ConceptionPlanche()
 void ConceptionPlanche::actualiser(void){
 
     int resol = visage.height/ui->tailleDuVisage->value();
+    if(resol==0) resol=1;   //évite de planter lorsque l'utilisateur fait n'import quoi
+
     int largeur = 35*resol; //taille de la photo a generer en px
     int hauteur = 45*resol; //taille de la photo a generer en px
 
@@ -64,7 +65,7 @@ void ConceptionPlanche::actualiser(void){
     if(sortie.x+sortie.width>image.cols)sortie.width = image.cols-sortie.x;
     if(sortie.y+sortie.height>image.rows)sortie.height = image.rows-sortie.y;
 
-    Mat imageUniqueSortie = image(sortie);      //ATTENTION on sort des limites de l'image parfois.
+    Mat imageUniqueSortie = image(sortie);
 
     imageSortie.create(150*resol, 100*resol, CV_8UC3);
     imageSortie = Scalar(255, 255, 255);

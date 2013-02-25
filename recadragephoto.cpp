@@ -9,8 +9,8 @@ RecadragePhoto::RecadragePhoto(Mat source, QWidget *parent) :
 
     numeroPrise = 0;
 
-    visage.x = 1;
-    visage.y = 1;
+    visage.x = 0;
+    visage.y = 0;
     visage.width = 1;
     visage.height = 1;
 
