@@ -6,14 +6,37 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>570</width>
+    <height>424</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Recadrage</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="Instructions">
+     <property name="text">
+      <string>Vous allez devoir indiquer où se trouve le haut du front (en dessous des cheuveux), le bas du manton, ainsi que l'une des deux oreilles (n'importe laquelle).</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Pour cela cliquez sur le bouton associé puis cliquez sur l'image à l'endoi approprié. Enfin validez en bas de la fenetre.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>

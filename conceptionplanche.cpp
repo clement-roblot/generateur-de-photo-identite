@@ -44,7 +44,7 @@ ConceptionPlanche::~ConceptionPlanche()
 void ConceptionPlanche::actualiser(void){
 
     int resol = visage.height/ui->tailleDuVisage->value();
-    if(resol==0) resol=1;   //évite de planter lorsque l'utilisateur fait n'import quoi
+    if(resol<=0) resol=1;   //évite de planter lorsque l'utilisateur fait n'import quoi
 
     int largeur = 35*resol; //taille de la photo a generer en px
     int hauteur = 45*resol; //taille de la photo a generer en px
@@ -61,9 +61,13 @@ void ConceptionPlanche::actualiser(void){
 
     //on test si on sort pas de l'image
     if(sortie.x<0) sortie.x = 0;
+    if(sortie.x>(image.cols-2))sortie.x = image.cols-2;
     if(sortie.y<0) sortie.y = 0;
+    if(sortie.y>(image.rows-2))sortie.y = image.rows-2;
     if(sortie.x+sortie.width>image.cols)sortie.width = image.cols-sortie.x;
+    if(sortie.width<1)sortie.width = 1;
     if(sortie.y+sortie.height>image.rows)sortie.height = image.rows-sortie.y;
+    if(sortie.height<1)sortie.height = 1;
 
     Mat imageUniqueSortie = image(sortie);
 

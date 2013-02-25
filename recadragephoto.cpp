@@ -21,7 +21,13 @@ RecadragePhoto::RecadragePhoto(Mat source, QWidget *parent) :
     photo->set_background_color(QColor(255, 255, 255));
     ui->photo->addWidget(photo);
 
-    actualiserImage();
+    //actualiserImage();
+
+
+    image.copyTo(tmp);
+    IplImage tmpo = tmp;
+    photo->display(&tmpo);
+
 
     connect(photo, SIGNAL(mousePressEventEvent(QMouseEvent*)), this, SLOT(clicPhoto(QMouseEvent*)));
 }
@@ -31,18 +37,6 @@ RecadragePhoto::~RecadragePhoto()
     delete ui;
 }
 
-
-void RecadragePhoto::setCadre(Rect cadre){
-
-    //ne fonctionne pas
-
-    front.x = cadre.x+(cadre.width/2); front.y = cadre.y;
-    manton.x = cadre.x+(cadre.width/2); manton.y = cadre.y+cadre.height;
-    oreille.x = cadre.x; oreille.y = cadre.y+(cadre.height/2);
-
-
-    recalculerCadre();
-}
 
 
 void RecadragePhoto::clicPhoto(QMouseEvent *event){
@@ -87,7 +81,36 @@ void RecadragePhoto::recalculerCadre(void){
 void RecadragePhoto::actualiserImage(void){
 
     image.copyTo(tmp);
-    rectangle(tmp, visage, Scalar( 255, 0, 0 ), 5);
+    //rectangle(tmp, visage, Scalar( 255, 0, 0 ), 5);
+
+    CvPoint oreille_reel;
+    oreille_reel.x = oreille.x*image.cols/photo->get_taille_image().width;
+    oreille_reel.y = oreille.y*image.rows/photo->get_taille_image().height;
+
+    circle(tmp, oreille_reel, 10, Scalar( 255, 0, 0 ), 3);
+    putText(tmp, "Oreille", oreille_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+
+
+
+    CvPoint front_reel;
+    front_reel.x = front.x*image.cols/photo->get_taille_image().width;
+    front_reel.y = front.y*image.rows/photo->get_taille_image().height;
+
+    circle(tmp, front_reel, 10, Scalar( 255, 0, 0 ), 3);
+    putText(tmp, "Front", front_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+
+
+
+    CvPoint manton_reel;
+    manton_reel.x = manton.x*image.cols/photo->get_taille_image().width;
+    manton_reel.y = manton.y*image.rows/photo->get_taille_image().height;
+
+    circle(tmp, manton_reel, 10, Scalar( 255, 0, 0 ), 3);
+    putText(tmp, "Manton", manton_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+
+
+
+
 
     IplImage tmpo = tmp;
     photo->display(&tmpo);

@@ -26,7 +26,6 @@ class RecadragePhoto : public QDialog
 public:
     explicit RecadragePhoto(Mat source, QWidget *parent = 0);
     ~RecadragePhoto();
-    void setCadre(Rect cadre);
 
 signals:
     void configFinie(Rect visage);

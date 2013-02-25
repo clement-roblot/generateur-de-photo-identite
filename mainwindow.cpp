@@ -8,8 +8,6 @@
 //- documenter le code
 //- faire un fichier readme qui roxx avec des images d'exemple
 //- lorsqu'on dezoom beaucoup, on sort de l'image et on plante
-//- expliquer comment on selectionne le front etc dans la fenetre de selection du visage
-
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
