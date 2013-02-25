@@ -45,9 +45,10 @@ ConceptionPlanche::~ConceptionPlanche()
 void ConceptionPlanche::actualiser(void){
 
     int resol = visage.height/ui->tailleDuVisage->value();
-    int largeur = 35*resol; //en px
-    int hauteur = 45*resol; //en px
+    int largeur = 35*resol; //taille de la photo a generer en px
+    int hauteur = 45*resol; //taille de la photo a generer en px
 
+    //calcul de la position de cadre pour extraire le visage de la photo originale
     int x = (visage.x + (visage.width/2))-(largeur/2)+(ui->largeurDuVisage->value()*resol);
     int y = (visage.y + (visage.height/2))-(hauteur/2)+(ui->hauteurDuVisage->value()*resol);
 
@@ -57,7 +58,13 @@ void ConceptionPlanche::actualiser(void){
     sortie.width = largeur;
     sortie.height = hauteur;
 
-    Mat imageUniqueSortie = image(sortie);
+    //on test si on sort pas de l'image
+    if(sortie.x<0) sortie.x = 0;
+    if(sortie.y<0) sortie.y = 0;
+    if(sortie.x+sortie.width>image.cols)sortie.width = image.cols-sortie.x;
+    if(sortie.y+sortie.height>image.rows)sortie.height = image.rows-sortie.y;
+
+    Mat imageUniqueSortie = image(sortie);      //ATTENTION on sort des limites de l'image parfois.
 
     imageSortie.create(150*resol, 100*resol, CV_8UC3);
     imageSortie = Scalar(255, 255, 255);

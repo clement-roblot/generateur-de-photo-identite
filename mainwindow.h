@@ -48,6 +48,8 @@ private slots:
 
     void recadrageFini(Rect visage);
 
+    void on_actionCharger_une_image_triggered();
+
 signals:
     void captureFinie(void);
     void calculFini(void);

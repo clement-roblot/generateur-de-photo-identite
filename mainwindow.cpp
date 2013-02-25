@@ -175,3 +175,8 @@ void MainWindow::rependreEnregistrement(void){
     qDebug("retour à la fenetre principle");
     timer->start();
 }
+
+void MainWindow::on_actionCharger_une_image_triggered()
+{
+    on_chargerImage_clicked();
+}

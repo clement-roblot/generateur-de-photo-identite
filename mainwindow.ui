@@ -63,6 +63,7 @@
     <property name="title">
      <string>Fichier</string>
     </property>
+    <addaction name="actionCharger_une_image"/>
     <addaction name="actionPrendre_une_image"/>
    </widget>
    <addaction name="menuFichier"/>
@@ -82,6 +83,11 @@
    </property>
    <property name="shortcut">
     <string>Space</string>
+   </property>
+  </action>
+  <action name="actionCharger_une_image">
+   <property name="text">
+    <string>Charger une image</string>
    </property>
   </action>
  </widget>
