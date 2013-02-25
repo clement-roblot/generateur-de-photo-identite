@@ -28,7 +28,6 @@ ConceptionPlanche::ConceptionPlanche(Mat image, Rect visage, QWidget *parent) :
 
     actualiser();
 
-
     connect(ui->tailleDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
     connect(ui->hauteurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
     connect(ui->largeurDuVisage, SIGNAL(valueChanged(int)), this, SLOT(actualiser()));
@@ -121,5 +120,3 @@ void ConceptionPlanche::recadrageFini(Rect visage){
     this->visage = visage;
     actualiser();
 }
-
-

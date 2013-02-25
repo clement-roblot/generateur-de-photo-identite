@@ -44,13 +44,8 @@ public:
     
 private slots:
     void actualiser(void);
-
-
     void on_boutonSauvegarder_clicked();
-
-
     void on_bouttonRecadrerImage_clicked();
-
     void recadrageFini(Rect visage);
 
 private:

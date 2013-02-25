@@ -4,7 +4,6 @@
 
 
 //TODO
-//- passer la cliqablegraphicsview en mat au lieu des IplImages
 //- documenter le code
 //- faire un fichier readme qui roxx avec des images d'exemple
 //- lorsqu'on dezoom beaucoup, on sort de l'image et on plante
