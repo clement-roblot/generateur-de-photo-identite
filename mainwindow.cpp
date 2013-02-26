@@ -1,3 +1,24 @@
+/*
+Copyright (c) 2013 Clement Roblot
+
+
+This file is part of Generateur de photo d'identite.
+
+Generateur de photo d'identite is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Foobar is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -6,7 +27,8 @@
 //TODO
 //- documenter le code
 //- faire un fichier readme qui roxx avec des images d'exemple
-//- lorsqu'on dezoom beaucoup, on sort de l'image et on plante
+//- lorsqu'on dezoom beaucoup, on sort de l'image et on plante???
+
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -32,12 +54,9 @@ MainWindow::MainWindow(QWidget *parent) :
         cout << "erreur d'ouverture de la webcam" << endl;
     }
 
-
-
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(prendreImage()));
     timer->start(100);
-
 }
 
 MainWindow::~MainWindow()
