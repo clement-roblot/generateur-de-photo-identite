@@ -43,7 +43,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gauche->addWidget(image);
 
 
-    if(!face_cascade.load("./references/haarcascade_frontalface_alt.xml")){
+    //if(!face_cascade.load("./references/haarcascade_frontalface_alt.xml")){
+    if(!face_cascade.load("/etc/generateur-de-photo-identite/references/haarcascade_frontalface_alt.xml")){
 
         qDebug("Erreur lors du chargement du fichier de caractéristique des visages.\n");
     }
@@ -52,11 +53,12 @@ MainWindow::MainWindow(QWidget *parent) :
     if(!web){
 
         cout << "erreur d'ouverture de la webcam" << endl;
-    }
+    }else{
 
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(prendreImage()));
-    timer->start(100);
+        timer = new QTimer(this);
+        connect(timer, SIGNAL(timeout()), this, SLOT(prendreImage()));
+        timer->start(100);
+    }
 }
 
 MainWindow::~MainWindow()
