@@ -29,7 +29,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Generateur_de_photo_identitee
+TARGET = generateur-de-photo-identite
 TEMPLATE = app
 
 unix:INCLUDEPATH += /usr/include/
