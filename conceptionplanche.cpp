@@ -96,13 +96,18 @@ void ConceptionPlanche::actualiser(void){
 
     Rect tmp;
     tmp.x = ECART_ENTRE_IMAGE_LARGEUR*resol; tmp.y = ECART_ENTRE_IMAGE_VERTICALE*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
+    Mat img1;
+    img1 = imageSortie(tmp);
+    imageUniqueSortie.copyTo(img1);
     tmp.x = (ECART_ENTRE_IMAGE_LARGEUR+HAUTEUR_IMAGE)*resol; tmp.y = ECART_ENTRE_IMAGE_VERTICALE*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
+    img1 = imageSortie(tmp);
+    imageUniqueSortie.copyTo(img1);
     tmp.x = ECART_ENTRE_IMAGE_LARGEUR*resol; tmp.y = ((2*ECART_ENTRE_IMAGE_VERTICALE)+HAUTEUR_IMAGE)*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
+    img1 = imageSortie(tmp);
+    imageUniqueSortie.copyTo(img1);
     tmp.x = (ECART_ENTRE_IMAGE_LARGEUR+HAUTEUR_IMAGE)*resol; tmp.y = ((2*ECART_ENTRE_IMAGE_VERTICALE)+HAUTEUR_IMAGE)*resol; tmp.width = sortie.width; tmp.height = sortie.height;
-    imageUniqueSortie.copyTo(imageSortie(tmp));
+    img1 = imageSortie(tmp);
+    imageUniqueSortie.copyTo(img1);
 
 
 
