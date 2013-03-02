@@ -53,3 +53,11 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     conceptionplanche.ui \
     recadragephoto.ui
+
+RESOURCES += \
+    ressource.qrc
+
+
+INSTALLS += target
+
+target.path = /usr/local/bin

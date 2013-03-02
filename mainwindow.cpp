@@ -43,8 +43,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gauche->addWidget(image);
 
 
-    //if(!face_cascade.load("./references/haarcascade_frontalface_alt.xml")){
-    if(!face_cascade.load("/etc/generateur-de-photo-identite/references/haarcascade_frontalface_alt.xml")){
+    //on lit le fichier de description des visages
+    QFile data(":/references/haarcascade_frontalface_alt.xml");
+    data.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream in(&data);
+
+    //et on le colle dans un nouveau fichier teporaire
+    QFile file(QDir::tempPath()+"/haarcascade_frontalface_alt.xml");
+    file.open(QIODevice::WriteOnly | QIODevice::Text);
+    QTextStream out(&file);
+    out << in.readAll();
+    file.close();
+
+    //on passe enfin le fichier à opencv
+    QString fichier_visage = QDir::tempPath()+"/haarcascade_frontalface_alt.xml";
+    if(!face_cascade.load(fichier_visage.toStdString())){
 
         qDebug("Erreur lors du chargement du fichier de caractéristique des visages.\n");
     }
@@ -63,6 +76,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+
+    QFile::remove(QDir::tempPath()+"/haarcascade_frontalface_alt.xml");
     delete ui;
 }
 
