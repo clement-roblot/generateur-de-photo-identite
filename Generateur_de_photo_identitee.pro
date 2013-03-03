@@ -37,6 +37,36 @@ unix:INCLUDEPATH += /usr/local/lib/
 unix:CONFIG += link_pkgconfig
 unix:PKGCONFIG += opencv
 
+
+
+
+win32:RC_FILE = Generateur_de_photo_identitee.rc
+#begin{opencv}
+win32:INCLUDEPATH += "C:/opencv/build/include"
+win32:INCLUDEPATH += "C:/opencv/build/include/opencv"
+win32:INCLUDEPATH += "C:/opencv/build/include/opencv2"
+
+
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_calib3d243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_contrib243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_core243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_features2d243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_flann243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_gpu243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_highgui243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_imgproc243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_legacy243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_ml243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_nonfree243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_objdetect243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_stitching243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_video243.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_videostab243.dll.a
+
+
+
+
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     refait.cpp \
