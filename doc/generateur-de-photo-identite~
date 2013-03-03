@@ -1,0 +1,17 @@
+.\" Manpage for generateur-de-photo-identite.
+.\" Contact karlito@martobre.fr.in to correct errors or typos.
+.TH man 8 "03 Mar 2013" "1.0" "generateur-de-photo-identite man page"
+.SH NAME
+generateur-de-photo-identite
+.SH SYNOPSIS
+generateur-de-photo-identite
+.SH DESCRIPTION
+generateur-de-photo-identite is a program designed to create home made identity pictures.
+.SH OPTIONS
+The generateur-de-photo-identite does not take any options.
+.SH SEE ALSO
+useradd(8), passwd(5), nuseradd.debian(8)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Vivek Gite (vivek@nixcraft.net.in)

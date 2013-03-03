@@ -58,6 +58,9 @@ RESOURCES += \
     ressource.qrc
 
 
-INSTALLS += target
+INSTALLS += target man
 
-target.path = /usr/local/bin
+target.path = /$(DESTDIR)/usr/bin
+
+man.files = doc/generateur-de-photo-identite.1.gz
+man.path = /$(DESTDIR)/usr/share/man/man1

@@ -1,0 +1,20 @@
+Source: generateur-de-photo-identite
+Maintainer: karlito <karlito@martobre.fr>
+Section: misc
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 8)
+
+Package: generateur-de-photo-identite
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Un generateur de photo d'identité
+ Ce logiciel est fait pour pouvoir créer ses
+ propres planches de photo d'identité chez
+ soi sans avoir à aller dans un Photomaton.
+ Il suffit ensuite d'imprimer la planche générée, 
+ de préférence sur du papier photo.
+ .
+ Les planches générée sont supposer respecter
+ les règles éidctées par le ministère de l'interieur
+ français.
