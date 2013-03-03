@@ -58,9 +58,33 @@ RESOURCES += \
     ressource.qrc
 
 
-INSTALLS += target man
+INSTALLS += target man lien icon16 icon22 icon32 icon48 icon64 icon128 iconscal
 
 target.path = /$(DESTDIR)/usr/bin
 
 man.files = doc/generateur-de-photo-identite.1.gz
 man.path = /$(DESTDIR)/usr/share/man/man1
+
+lien.files = lien/generateur-de-photo-identite.desktop
+lien.path = /$(DESTDIR)/usr/share/applications
+
+icon16.files = icon/debian/usr/share/icons/hicolor/16x16/apps/generateur-de-photo-identite.png
+icon16.path = /$(DESTDIR)/usr/share/icons/hicolor/16x16/apps
+
+icon22.files = icon/debian/usr/share/icons/hicolor/22x22/apps/generateur-de-photo-identite.png
+icon22.path = /$(DESTDIR)/usr/share/icons/hicolor/22x22/apps
+
+icon32.files = icon/debian/usr/share/icons/hicolor/32x32/apps/generateur-de-photo-identite.png
+icon32.path = /$(DESTDIR)/usr/share/icons/hicolor/32x32/apps
+
+icon48.files = icon/debian/usr/share/icons/hicolor/48x48/apps/generateur-de-photo-identite.png
+icon48.path = /$(DESTDIR)/usr/share/icons/hicolor/48x48/apps
+
+icon64.files = icon/debian/usr/share/icons/hicolor/64x64/apps/generateur-de-photo-identite.png
+icon64.path = /$(DESTDIR)/usr/share/icons/hicolor/64x64/apps
+
+icon128.files = icon/debian/usr/share/icons/hicolor/128x128/apps/generateur-de-photo-identite.png
+icon128.path = /$(DESTDIR)/usr/share/icons/hicolor/128x128/apps
+
+iconscal.files = icon/debian/usr/share/icons/hicolor/scalable/apps/generateur-de-photo_identite.svgz
+iconscal.path = /$(DESTDIR)/usr/share/icons/hicolor/scalable/apps

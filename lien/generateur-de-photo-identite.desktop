@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Generateur de photo d'identité
+GenericName=Image Editor
+Comment=Créé des planche de photo d'identité
+Exec=generateur-de-photo-identite
+TryExec=generateur-de-photo-identite
+Icon=generateur-de-photo-identite
+Terminal=false
+Categories=Graphics;2DGraphics;RasterGraphics;GTK;
+StartupNotify=true
+MimeType=image/jpeg;image/png;
+Name[fr_FR]=generateur-de-photo-identite.desktop
