@@ -3,4 +3,4 @@
 	dh $@
 
 override_dh_auto_install:
-	$(MAKE) DESTDIR=$$(pwd)/debian/generateur-de-photo-identite prefix=/usr install
+	$(MAKE) DESTDIR=$$(pwd)/debian/generateur-de-photos-identite prefix=/usr install

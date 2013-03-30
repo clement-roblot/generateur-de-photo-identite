@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="Instructions">
      <property name="text">
-      <string>Vous allez devoir indiquer où se trouve le haut du front (en dessous des cheuveux), le bas du manton, ainsi que l'une des deux oreilles (n'importe laquelle).</string>
+      <string>Vous allez devoir indiquer où se trouve le haut du front (en dessous des cheveux), le bas du menton, ainsi que l'une des deux oreilles (n'importe laquelle).</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -30,7 +30,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>Pour cela cliquez sur le bouton associé puis cliquez sur l'image à l'endoi approprié. Enfin validez en bas de la fenetre.</string>
+      <string>Pour cela cliquez sur le bouton associé puis cliquez sur l'image à l'endoit approprié. Enfin validez en bas de la fenêtre.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -49,7 +49,7 @@
      <item>
       <widget class="QPushButton" name="bouttonManton">
        <property name="text">
-        <string>Manton</string>
+        <string>Menton</string>
        </property>
       </widget>
      </item>

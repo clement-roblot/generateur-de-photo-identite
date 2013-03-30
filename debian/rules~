@@ -2,11 +2,5 @@
 %:
 	dh $@
 
-build/generateur-de-photo-identite::
-	icon/resize.sh icon.svg
-
-clean::
-	rm -rf debian/generateur-de-photo-identite/icons
-
 override_dh_auto_install:
 	$(MAKE) DESTDIR=$$(pwd)/debian/generateur-de-photo-identite prefix=/usr install
