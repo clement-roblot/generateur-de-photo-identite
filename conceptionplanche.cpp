@@ -63,11 +63,11 @@ ConceptionPlanche::~ConceptionPlanche()
 
 void ConceptionPlanche::actualiser(void){
 
-    int resol = visage.height/ui->tailleDuVisage->value();
+    int resol = (visage.height*1.0)/(ui->tailleDuVisage->value()*1.0);
     if(resol<=0) resol=1;   //évite de planter lorsque l'utilisateur fait n'import quoi
 
-    int largeur = 35*resol; //taille de la photo a generer en px
-    int hauteur = 45*resol; //taille de la photo a generer en px
+    int largeur = LARGEUR_IMAGE*resol; //taille de la photo a generer en px
+    int hauteur = HAUTEUR_IMAGE*resol; //taille de la photo a generer en px
 
     //calcul de la position de cadre pour extraire le visage de la photo originale
     int x = (visage.x + (visage.width/2))-(largeur/2)+(ui->largeurDuVisage->value()*resol);
@@ -91,7 +91,7 @@ void ConceptionPlanche::actualiser(void){
 
     Mat imageUniqueSortie = image(sortie);
 
-    imageSortie.create(150*resol, 100*resol, CV_8UC3);
+    imageSortie.create(HAUTEUR_PLANCHE*resol, LARGEUR_PLANCHE*resol, CV_8UC3);
     imageSortie = Scalar(255, 255, 255);
 
     Rect tmp;

@@ -97,40 +97,47 @@ void MainWindow::prendreImage(void){
 
 Rect MainWindow::detectAndDisplay(void)
 {
-   std::vector<Rect> faces;
-   Mat frame_gray;
+  std::vector<Rect> faces;
+  Mat frame_gray;
 
-   raw.copyTo(affichage);
+  raw.copyTo(affichage);
 
-   cvtColor( affichage, frame_gray, CV_BGR2GRAY );
-   equalizeHist( frame_gray, frame_gray );
+  cvtColor( affichage, frame_gray, CV_BGR2GRAY );
+  equalizeHist( frame_gray, frame_gray );
 
-   //-- Detect faces
-   face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0, Size(80, 80) );
+  //-- Detect faces
+  face_cascade.detectMultiScale( frame_gray, faces, 1.1, 2, 0, Size(80, 80) );
 
-   //-- Draw the face
-   if(faces.size() == 1){
+  //-- Draw the face
+  if(faces.size() == 1){
 
-       //Point center( faces[0].x + faces[0].width/2, faces[0].y + faces[0].height/2 );
-       //ellipse( affichage, center, Size( faces[0].width/2, faces[0].height/2), 0, 0, 360, Scalar( 255, 0, 0 ), 2, 8, 0 );
-       rectangle(affichage, faces[0], Scalar( 255, 0, 0 ), 5);
-   }
+    //Add more heigth to include the haire
+    //OFFSETHAUTEUR
+    int heightToMoveUp = OFFSETHAUTEUR*faces[0].height/100.0;
+    if(heightToMoveUp >= faces[0].y) heightToMoveUp = faces[0].y-1; //protect against going out of the picture
 
-   //-- Show what you got
-   IplImage ipl_img = affichage;
-   image->display(&ipl_img);
+    faces[0].y -= heightToMoveUp;
+    faces[0].height += heightToMoveUp;
 
-   //return faces[0];
-   if(faces.size() == 1){
-       return faces[0];
-   }else{
-       Rect tmp;
-       tmp.x = -1;
-       tmp.y = -1;
-       tmp.width = -1;
-       tmp.height = -1;
-       return tmp;
-   }
+    //Point center( faces[0].x + faces[0].width/2, faces[0].y + faces[0].height/2 );
+    //ellipse( affichage, center, Size( faces[0].width/2, faces[0].height/2), 0, 0, 360, Scalar( 255, 0, 0 ), 2, 8, 0 );
+    rectangle(affichage, faces[0], Scalar( 255, 0, 0 ), 5);
+  }
+
+  //-- Show what you got
+  IplImage ipl_img = affichage;
+  image->display(&ipl_img);
+
+  if(faces.size() == 1){
+    return faces[0];
+  }else{
+    Rect tmp;
+    tmp.x = -1;
+    tmp.y = -1;
+    tmp.width = -1;
+    tmp.height = -1;
+    return tmp;
+  }
 
 }
 

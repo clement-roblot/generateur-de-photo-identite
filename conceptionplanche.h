@@ -34,12 +34,15 @@ along with Generateur de photo d'identite.  If not, see <http://www.gnu.org/lice
 #include "clicableqgraphicsview.h"
 #include "recadragephoto.h"
 
+#define LARGEUR_PLANCHE 101 //mm
+#define HAUTEUR_PLANCHE 152 //mm
 
-#define LARGEUR_IMAGE   35
-#define HAUTEUR_IMAGE   45
+#define LARGEUR_IMAGE   35  //mm
+#define HAUTEUR_IMAGE   45  //mm
 
-#define TAILLE_VISAGE   34
-#define OFFSETHAUTEUR   -3     //TAILLE_VISAGE-OFFSETHAUTEUR < 45       On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
+#define TAILLE_VISAGE   34  //mm de hauteur par default
+#define OFFSETHAUTEUR   25     //On décale vers le haut le cadre du visage pour prendre en compte les cheuveux
+                               //En pourcentage de la taille du visage
 
 #define TAILLE_MIN_VISAGE   32
 #define TAILLE_MAX_VISAGE   36
