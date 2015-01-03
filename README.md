@@ -44,3 +44,7 @@ Enregistrer puis l'ajouter au path de pkg-config :
 	export PKG_CONFIG_PATH
 
 Ces deux dernières lignes sont à ajouter à votre .bashrc pour automatiser l'insertion d'opencv au path à chaque reboot.
+
+Malgrè cela il est possible de toujours avoir des problèmes pour compiler les fichier nécessitant highgui. Il suffit d'installer le paquet correspondant :
+
+	sudo apt-get install libhighgui-dev
