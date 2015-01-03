@@ -119,7 +119,7 @@ void ConceptionPlanche::on_boutonSauvegarder_clicked()
 {
 
     QFileDialog *dialog;
-    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toAscii());
+    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toUtf8());
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setFileMode(QFileDialog::AnyFile);
     dialog->setDefaultSuffix("jpg");

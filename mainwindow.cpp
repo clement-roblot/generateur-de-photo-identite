@@ -177,7 +177,7 @@ void MainWindow::on_chargerImage_clicked()
     //Sinon on ouvre une fenètre de selection du fichier
     QStringList file;
     QFileDialog *dialog;
-    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toAscii());
+    dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toUtf8());
     dialog->setAcceptMode(QFileDialog::AcceptOpen);
 
     dialog->show();
@@ -189,7 +189,7 @@ void MainWindow::on_chargerImage_clicked()
 
         timer->stop();
 
-        raw = cvLoadImage(file.value(0).toAscii());
+        raw = cvLoadImage(file.value(0).toUtf8());
 
         Rect visage;
         visage = detectAndDisplay();
