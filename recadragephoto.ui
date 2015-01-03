@@ -17,7 +17,7 @@
    <item>
     <widget class="QLabel" name="Instructions">
      <property name="text">
-      <string>Vous allez devoir indiquer où se trouve le haut du front (en dessous des cheveux), le bas du menton, ainsi que l'une des deux oreilles (n'importe laquelle).</string>
+      <string>Vous allez devoir indiquer où se trouve le haut du crâne, le bas du menton, ainsi que l'une des deux oreilles (n'importe laquelle).</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -42,7 +42,7 @@
      <item>
       <widget class="QPushButton" name="bouttonFront">
        <property name="text">
-        <string>Front</string>
+        <string>Crane</string>
        </property>
       </widget>
      </item>

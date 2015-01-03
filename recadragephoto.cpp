@@ -118,7 +118,7 @@ void RecadragePhoto::actualiserImage(void){
     front_reel.y = front.y*image.rows/photo->get_taille_image().height;
 
     circle(tmp, front_reel, 10, Scalar( 255, 0, 0 ), 3);
-    putText(tmp, "Front", front_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+    putText(tmp, "Crane", front_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
 
 
 
