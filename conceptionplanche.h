@@ -71,6 +71,8 @@ private slots:
     void on_bouttonRecadrerImage_clicked();
     void recadrageFini(Rect visage);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::ConceptionPlanche *ui;
 
@@ -78,6 +80,7 @@ private:
 
     ClicableQGraphicsView *photo;
     Mat image;
+    Mat imageSortieBrut;
     Mat imageSortie;
     Rect visage;
 };

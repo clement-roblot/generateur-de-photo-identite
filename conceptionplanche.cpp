@@ -113,6 +113,13 @@ void ConceptionPlanche::actualiser(void){
 
     IplImage ipl_img = imageSortie;
     photo->display(&ipl_img);
+
+
+    // export de l'image brut si besoin
+    imageSortieBrut.create(HAUTEUR_IMAGE*resol, LARGEUR_IMAGE*resol, CV_8UC3);
+    imageSortieBrut = Scalar(255, 255, 255);
+
+    imageUniqueSortie.copyTo(imageSortieBrut);
 }
 
 void ConceptionPlanche::on_boutonSauvegarder_clicked()
@@ -130,6 +137,22 @@ void ConceptionPlanche::on_boutonSauvegarder_clicked()
         imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), imageSortie);
         this->close();
     }
+}
+
+void ConceptionPlanche::on_pushButton_clicked()
+{
+  QFileDialog *dialog;
+  dialog = new QFileDialog( this, QString::fromUtf8("Choisi un fichier image").toUtf8());
+  dialog->setAcceptMode(QFileDialog::AcceptSave);
+  dialog->setFileMode(QFileDialog::AnyFile);
+  dialog->setDefaultSuffix("jpg");
+  dialog->show();
+
+  if(dialog->exec() == QDialog::Accepted){    //si on valide un fichier correctement
+
+      imwrite(dialog->selectedFiles().value(0).toUtf8().constData(), imageSortieBrut);
+      this->close();
+  }
 }
 
 void ConceptionPlanche::on_bouttonRecadrerImage_clicked()

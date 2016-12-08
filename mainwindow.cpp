@@ -63,12 +63,13 @@ MainWindow::MainWindow(QWidget *parent) :
     }
 
     web = cvCreateCameraCapture(-1);
+
+    timer = new QTimer(this);
+
     if(!web){
 
         cout << "erreur d'ouverture de la webcam" << endl;
     }else{
-
-        timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(prendreImage()));
         timer->start(100);
     }
