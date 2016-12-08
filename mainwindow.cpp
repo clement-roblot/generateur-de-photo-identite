@@ -199,10 +199,17 @@ void MainWindow::on_chargerImage_clicked()
 
         raw = cvLoadImage(file.value(0).toUtf8());
 
-        Rect visage;
-        visage = detectAndDisplay();
+        if( raw.data == NULL )
+        {
+          // Error, the file is not an image ?
+        }
+        else
+        {
+          Rect visage;
+          visage = detectAndDisplay();
 
-        composer(raw, visage);
+          composer(raw, visage);
+        }
     }
 }
 
