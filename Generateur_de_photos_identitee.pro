@@ -46,25 +46,38 @@ win32:INCLUDEPATH += "C:/opencv/build/include"
 win32:INCLUDEPATH += "C:/opencv/build/include/opencv"
 win32:INCLUDEPATH += "C:/opencv/build/include/opencv2"
 
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_calib3d249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_contrib249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_core249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_features2d249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_flann249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_gpu249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_highgui249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_imgproc249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_legacy249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_ml249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_nonfree249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_objdetect249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_stitching249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_video249.dll.a
+win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_videostab249.dll.a
 
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_calib3d243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_contrib243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_core243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_features2d243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_flann243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_gpu243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_highgui243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_imgproc243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_legacy243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_ml243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_nonfree243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_objdetect243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_stitching243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_video243.dll.a
-win32:LIBS += C:/opencv/build/x86/mingw/lib/libopencv_videostab243.dll.a
-
-
-
+#LIBS += -LC:/opencv/build/x86/mingw/lib \
+#    -llibopencv_calib3d249.dll.a \
+#    -llibopencv_contrib249.dll.a \
+#    -llibopencv_core249.dll.a \
+#    -llibopencv_features2d249.dll.a \
+#    -llibopencv_flann249.dll.a \
+#    -llibopencv_gpu249.dll.a \
+#    -llibopencv_highgui249.dll.a \
+#    -llibopencv_imgproc249.dll.a \
+#    -llibopencv_legacy249.dll.a \
+#    -llibopencv_ml249.dll.a \
+#    -llibopencv_nonfree249.dll.a \
+#    -llibopencv_objdetect249.dll.a \
+#    -llibopencv_stitching249.dll.a \
+#    -llibopencv_video249.dll.a \
+#    -llibopencv_videostab249.dll.a
 
 
 SOURCES += main.cpp\
