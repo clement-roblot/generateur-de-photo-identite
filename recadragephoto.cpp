@@ -69,8 +69,8 @@ void RecadragePhoto::clicPhoto(QMouseEvent *event){
                 front.y = event->y() - photo->get_position_image().y();
                 break;
 
-    case 2 :    manton.x = event->x() - photo->get_position_image().x();
-                manton.y = event->y() - photo->get_position_image().y();
+    case 2 :    menton.x = event->x() - photo->get_position_image().x();
+                menton.y = event->y() - photo->get_position_image().y();
                 break;
 
     case 3 :    oreille.x = event->x() - photo->get_position_image().x();
@@ -93,7 +93,7 @@ void RecadragePhoto::recalculerCadre(void){
 
     visage.x = (oreille.x<front.x?oreille.x:((2*front.x)-oreille.x))*image.cols/photo->get_taille_image().width;
     visage.y = (front.y)*image.rows/photo->get_taille_image().height;
-    visage.height = (manton.y - front.y)*image.rows/photo->get_taille_image().height;
+    visage.height = (menton.y - front.y)*image.rows/photo->get_taille_image().height;
     visage.width = (2*abs(front.x-oreille.x))*image.cols/photo->get_taille_image().width;
 
     actualiserImage();
@@ -122,12 +122,12 @@ void RecadragePhoto::actualiserImage(void){
 
 
 
-    CvPoint manton_reel;
-    manton_reel.x = manton.x*image.cols/photo->get_taille_image().width;
-    manton_reel.y = manton.y*image.rows/photo->get_taille_image().height;
+    CvPoint menton_reel;
+    menton_reel.x = menton.x*image.cols/photo->get_taille_image().width;
+    menton_reel.y = menton.y*image.rows/photo->get_taille_image().height;
 
-    circle(tmp, manton_reel, 10, Scalar( 255, 0, 0 ), 3);
-    putText(tmp, "Manton", manton_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
+    circle(tmp, menton_reel, 10, Scalar( 255, 0, 0 ), 3);
+    putText(tmp, "Menton", menton_reel, FONT_HERSHEY_COMPLEX_SMALL, 0.8, cvScalar(200,200,250), 1, CV_AA);
 
 
 
@@ -148,7 +148,7 @@ void RecadragePhoto::on_bouttonFront_clicked()
     numeroPrise = 1;
 }
 
-void RecadragePhoto::on_bouttonManton_clicked()
+void RecadragePhoto::on_bouttonMenton_clicked()
 {
     numeroPrise = 2;
 }
