@@ -56,7 +56,7 @@ private slots:
 
     void on_bouttonFront_clicked();
 
-    void on_bouttonManton_clicked();
+    void on_bouttonMenton_clicked();
 
     void on_bouttonOreille_clicked();
 
@@ -75,7 +75,7 @@ private:
     Rect visage;
 
     CvPoint front;
-    CvPoint manton;
+    CvPoint menton;
     CvPoint oreille;
 
     int numeroPrise;    //numero du point que l'on est en train de déterminer
